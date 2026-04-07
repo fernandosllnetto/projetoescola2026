@@ -32,15 +32,6 @@ O sistema representa uma base sólida para aplicações maiores e demonstra boas
 - 🔧 Git & GitHub  
 
 ---
-
-## 📂 Estrutura do Projeto
-
-```bash
-src/
- ├── application/
- ├── entities/
- ├── services/
- └── Main.java
 ⚙️ Como Executar
 🔹 Clone o projeto
 git clone https://github.com/fernandosllnetto/projetojava2026.git
@@ -52,3 +43,13 @@ Programação Orientada a Objetos (POO)
 Encapsulamento
 Organização em camadas
 Boas práticas de código
+
+## 📂 Estrutura do Projeto
+
+```bash
+src/
+ ├── application/
+ ├── entities/
+ ├── services/
+ └── Main.java
+
