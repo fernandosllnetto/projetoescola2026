@@ -10,9 +10,7 @@
 
 ## 📌 Sobre o Projeto
 
-Este projeto foi desenvolvido com o objetivo de praticar e consolidar conhecimentos em **Java**, aplicando conceitos fundamentais de programação e organização de código.
-
-O sistema representa uma base sólida para aplicações maiores e demonstra boas práticas no desenvolvimento.
+Esta aplicação foi desenvolvida em Java com o objetivo de praticar e demonstrar conceitos fundamentais de programação, incluindo Spring Boot e organização em camadas. O sistema implementa operações de CRUD (Create, Read, Update, Delete), permitindo o cadastro, consulta, atualização e remoção de dados, simulando o funcionamento de aplicações reais e servindo como base para evolução em projetos mais complexos.
 
 ---
 
@@ -27,29 +25,63 @@ O sistema representa uma base sólida para aplicações maiores e demonstra boas
 
 ## 🛠️ Tecnologias Utilizadas
 
-- ☕ Java  
-- 💻 IntelliJ IDEA  
-- 🔧 Git & GitHub  
+- ⚙️ Java 21
+- ⚙️ IntelliJ IDEA  
+- ⚙️ Git & GitHub
+- ⚙️ Spring Web
+- ⚙️ Spring Boot
+- ⚙️ Spring Data JPA
+- ⚙️ Insomnia
+- ⚙️ DBeaver
+- ⚙️ PostgreSQL
+  
 
 ---
-⚙️ Como Executar
-🔹 Clone o projeto
-git clone https://github.com/fernandosllnetto/projetojava2026.git
-🔹 Execute
-Abra na sua IDE
-Execute a classe Main
-🧠 Conceitos Aplicados
-Programação Orientada a Objetos (POO)
-Encapsulamento
-Organização em camadas
-Boas práticas de código
 
 ## 📂 Estrutura do Projeto
 
 ```bash
 src/
- ├── application/
- ├── entities/
- ├── services/
- └── Main.java
+ ├── model/
+ ├── repository/
+ ├── service/
+ └── controller/
+```
+## ⚙️ Como Executar
 
+🔹 Clone o projeto
+
+```bash
+git clone https://github.com/fernandosllnetto/projetojava2026.git
+```
+🔹 Configure o banco de dados
+
+```bash
+CREAT DATABASE aluno_online
+```
+🔹 Configure o application.properties
+
+```bash
+spring.datasource.url=jdbc:postgresq
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.form
+```
+🔹 Execute o projeto 
+
+```bash
+./mvnw spring-boot:run
+```
+## 📌 Requisição (JSON)
+
+🚀 Criar Aluno 
+```bash
+{
+	"nome": "João da Silva",
+	"cpf": "00072554469",
+	"email": "joaodasilva@gmail.com"
+}
+```
