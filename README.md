@@ -41,3 +41,14 @@ src/
  ├── entities/
  ├── services/
  └── Main.java
+⚙️ Como Executar
+🔹 Clone o projeto
+git clone https://github.com/fernandosllnetto/projetojava2026.git
+🔹 Execute
+Abra na sua IDE
+Execute a classe Main
+🧠 Conceitos Aplicados
+Programação Orientada a Objetos (POO)
+Encapsulamento
+Organização em camadas
+Boas práticas de código
