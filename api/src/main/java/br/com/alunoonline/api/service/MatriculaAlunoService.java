@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import br.com.alunoonline.api.strategy.AprovacaoMediaSeteStrategy;
+import br.com.alunoonline.api.strategy.RegraAprovacaoStrategy;
 
 @Service
 public class MatriculaAlunoService {
@@ -15,7 +17,6 @@ public class MatriculaAlunoService {
     @Autowired
     MatriculaAlunoRepository matriculaAlunoRepository;
 
-    private static final Double MEDIA_PARA_APROVACAO = 7.0;
     // ═══════════════ ATUALIZAR NOTAS ═══════════════
     public void atualizarNotas(Long id,
                                AtualizarNotasRequestDTO dto) {
@@ -36,10 +37,16 @@ public class MatriculaAlunoService {
         // 3) Se as 2 notas existem, calcula média e define status
         if (matricula.getNota1() != null
                 && matricula.getNota2() != null) {
-            Double media = (matricula.getNota1()
-                    + matricula.getNota2()) / 2;
+            RegraAprovacaoStrategy estrategia =
+                    new AprovacaoMediaSeteStrategy();
+
+            boolean aprovado =
+                    estrategia.aprovado(
+                            matricula.getNota1(),
+                            matricula.getNota2());
+
             matricula.setStatus(
-                    media >= MEDIA_PARA_APROVACAO
+                    aprovado
                             ? MatriculaAlunoStatusEnum.APROVADO
                             : MatriculaAlunoStatusEnum.REPROVADO);
         }

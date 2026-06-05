@@ -1,5 +1,6 @@
 package br.com.alunoonline.api.model;
 
+import br.com.alunoonline.api.factory.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "professor")
 @Entity
-public class Professor {
+public class Professor implements Usuario {
 
     @Id                          // "Este campo é a chave primária"
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +23,10 @@ public class Professor {
     private String cpf;
 
     private String email;
+
+    @Override
+    public String getTipo() {
+        return "PROFESSOR";
+    }
 }
 

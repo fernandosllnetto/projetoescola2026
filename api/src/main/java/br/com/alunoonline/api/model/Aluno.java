@@ -1,5 +1,6 @@
 package br.com.alunoonline.api.model;
 
+import br.com.alunoonline.api.factory.Usuario;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +9,7 @@ import lombok.*;
 @Data                // Gera getters, setters, toString, equals
 @Table(name = "aluno")   // Nome da tabela no banco
 @Entity              // "Esta classe é uma tabela!"
-public class Aluno {
+public class Aluno implements Usuario {
 
     @Id                          // "Este campo é a chave primária"
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +21,9 @@ public class Aluno {
     private String cpf;
 
     private String email;
+
+    @Override
+    public String getTipo() {
+        return "ALUNO";
+    }
 }
